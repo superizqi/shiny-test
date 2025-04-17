@@ -11,7 +11,6 @@ def load_registration_data():
         raise FileNotFoundError("registration_data.csv tidak ditemukan!")
     
     df = pd.read_csv("registration_data.csv")
-    
     return df
 
 # Save to global variable
@@ -24,7 +23,6 @@ def load_transaction_data():
         raise FileNotFoundError("transaction_data.csv tidak ditemukan!")
 
     df = pd.read_csv("transaction_data.csv", parse_dates=["date"])
-
     return df
 
 transaction_df = load_transaction_data()
@@ -98,8 +96,6 @@ app_ui = ui.page_fluid(
 
 # Server
 def server(input, output, session):
-
-
     @output
     @render.plot
     def pie_chart():
@@ -108,7 +104,6 @@ def server(input, output, session):
         ax.pie(platform_counts, labels=platform_counts.index, autopct="%1.1f%%", startangle=140)
         return fig
 
-    
     @output
     @render.plot
     def line_chart_new_users():
